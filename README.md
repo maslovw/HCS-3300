@@ -1,10 +1,17 @@
 # HCS-3300
 Python control over Manson HCS-3300 Power Source
 
-![HCS-3300_FrontPanel](https://github.com/maslovw/HCS-3300/blob/master/doc/front_panel.png)
 
 # Installation
-`pip install .`
+```
+git clone git@github.com:maslovw/HCS-3300.git
+cd HCS-3300
+pip install -e .
+```
+
+## Update
+
+`git pull`
 
 # Usage
 
@@ -29,7 +36,26 @@ options:
   --verbose             DEBUG Logging
 ```
 
-Example:
+### Configuration
+#### Linux example
+
+- find which port is assigned to HCS-3302 and add this to your .bashrc
+
+```
+export HCS_3300="/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0"
+```
+
+#### Windows example
+
+- find which port is assigned to HCS-3302 and add this to your Environment Variables
+
+```
+HCS_3300="COM3"
+```
+
+
+### Example:
+
 ```bash
 >> hcs3300 --setU=12 --on
 setU(12.0V):  True
@@ -46,6 +72,7 @@ getU:  6.51
 
 >> hcs3300 --getI
 getI:  1.456
+```
 
 ## Python
 
